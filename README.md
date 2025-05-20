@@ -1,4 +1,4 @@
-# Fit Plan - Sistema de Gerenciamento de Fichas de Treino 🏋️‍♂️
+# Gym Plan - Sistema de Gerenciamento de Fichas de Treino 🏋️‍♂️
 
 Sistema backend para gerenciamento de fichas de treino de academia, permitindo que professores criem e gerenciem treinos personalizados para seus alunos.
 

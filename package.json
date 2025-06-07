@@ -5,7 +5,8 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "test": "node src/tests/teste-inicial.js"
+    "test:fluxo": "node src/tests/teste-inicial.js",
+    "test:validacao": "node src/tests/teste-validacao.js"
   },
   "dependencies": {
     "mongoose": "^6.0.0"

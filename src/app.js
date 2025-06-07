@@ -1,24 +1,22 @@
 const mongoose = require('mongoose');
 const connectDB = require('./config/database');
+const Logger = require('./utils/logger');
 
 // Importar modelos
 require('./models');
 
-// Configurar mongoose
-mongoose.set('strictQuery', true);
-
 // Conectar ao MongoDB
 connectDB();
 
-// Adicionar tratamento básico de erros do MongoDB
-mongoose.connection.on('error', (err) => {
-    console.error('Erro MongoDB:', err);
+// Tratamento de exceções não capturadas
+process.on('uncaughtException', (err) => {
+    Logger.error('ERRO NÃO CAPTURADO! 💥 Encerrando...', err);
+    process.exit(1);
 });
 
-// Iniciar o servidor básico
-const server = require('http').createServer();
-const PORT = 3000;
-
-server.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+process.on('unhandledRejection', (err) => {
+    Logger.error('PROMESSA NÃO TRATADA! 💥 Encerrando...', err);
+    process.exit(1);
 });
+
+Logger.info('Sistema iniciado com sucesso');
